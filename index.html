@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Unaccelerator - Real Community for Real Founders</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 40px auto;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+        
+        .value-prop {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .value-prop h2 {
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #333;
+        }
+        
+        .problems {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .problem {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .problem h3 {
+            color: #e74c3c;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .solution {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .solution h2 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .communities {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .communities h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+        }
+        
+        .community-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .community-type {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .community-type h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+        
+        .moderator-section {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .moderator-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.2rem;
+        }
+        
+        .moderator-section > p {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .moderator-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .moderator-role {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 4px solid #764ba2;
+        }
+        
+        .moderator-role h3 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+        
+        .expectations {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .expectations h2 {
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+        
+        .expect-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+        
+        .expect-section h3 {
+            color: #667eea;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .expect-section ul {
+            list-style: none;
+        }
+        
+        .expect-section li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .expect-section li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+        
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: #667eea;
+            border: 2px solid #667eea;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .manifesto-link {
+            margin-top: 30px;
+        }
+        
+        .manifesto-section {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            margin: 40px 0;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .manifesto-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            color: #333;
+        }
+        
+        .manifesto-excerpt {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .social-share {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .social-share span {
+            font-weight: 600;
+            color: #333;
+            margin-right: 10px;
+        }
+        
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+            color: white;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .social-btn.twitter {
+            background: #1da1f2;
+        }
+        
+        .social-btn.linkedin {
+            background: #0077b5;
+        }
+        
+        .social-btn.facebook {
+            background: #1877f2;
+        }
+        
+        .interaction-section {
+            background: #f8f9fa;
+            padding: 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+        
+        .interaction-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .like-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .like-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: white;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .like-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        .like-btn.liked {
+            background: #667eea;
+            color: white;
+        }
+        
+        .like-count {
+            font-size: 1.1rem;
+            color: #666;
+        }
+        
+        .comments-section {
+            margin-top: 30px;
+        }
+        
+        .comment-form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .comment-form textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            resize: vertical;
+        }
+        
+        .comment-form textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .comment-form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+        
+        .comment-form input[type="text"] {
+            padding: 10px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            width: 200px;
+        }
+        
+        .comment-form input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .comment-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .comment-btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .comments-list {
+            space-y: 20px;
+        }
+        
+        .comment {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .comment-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .comment-author {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .comment-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+        
+        .comment-text {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .moderation-notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 10px 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero {
+                padding: 40px 20px;
+                margin: 20px auto;
+            }
+            
+            .expect-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>The Unaccelerator</h1>
+            <p class="subtitle">Real community for founders building real companies</p>
+            <div class="manifesto-link">
+                <a href="manifesto.html" class="btn-secondary">Read Our Full Manifesto</a>
+            </div>
+        </div>
+        
+        <div class="value-prop">
+            <h2>Traditional accelerators are broken</h2>
+            <div class="problems">
+                <div class="problem">
+                    <h3>The Funding Myth</h3>
+                    <p>Y Combinator gives $500K when AI tools cost $20/month. What exactly are you supposed to spend that money on?</p>
+                </div>
+                <div class="problem">
+                    <h3>Lost Community</h3>
+                    <p>200+ company cohorts destroyed the intimate community that made early YC valuable. You're just another face in the crowd.</p>
+                </div>
+                <div class="problem">
+                    <h3>Irrelevant Advice</h3>
+                    <p>Learning from founders who built companies 20 years ago with different tools? You're playing a different game entirely.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="solution">
+            <h2>Here's what we offer instead</h2>
+            <p><strong>✗ Zero funding</strong> in exchange for 0% equity</p>
+            <p><strong>✗ Zero fees</strong> in exchange for zero paywalls</p>
+            <p><strong>✓ Community</strong> as valuable as you choose to make it</p>
+            <p><strong>✓ Complete transparency</strong> about real struggles</p>
+            <p><strong>✓ Peer-to-peer learning</strong> from founders playing the same game you are</p>
+            <p><strong>✓ Maybe a free t-shirt</strong></p>
+        </div>
+        
+        <div class="communities">
+            <h2>Small Communities That Actually Know Each Other</h2>
+            <p>Every member knows every other member by name and has a rough idea of what they're working on. No getting lost in the crowd.</p>
+            
+            <div class="community-types">
+                <div class="community-type">
+                    <h3>By Stage</h3>
+                    <p>Idea, Pre-Revenue, Early Stage, Growth</p>
+                </div>
+                <div class="community-type">
+                    <h3>By Industry</h3>
+                    <p>AI/ML, SaaS, E-commerce, Creator Economy</p>
+                </div>
+                <div class="community-type">
+                    <h3>By Region</h3>
+                    <p>Build local ecosystem density in your area</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="moderator-section">
+            <h2>Community-Driven Leadership</h2>
+            <p>Each community is led by experienced moderators who have real authority and responsibility:</p>
+            
+            <div class="moderator-grid">
+                <div class="moderator-role">
+                    <h3>Foster Engagement</h3>
+                    <p>Organize regular meetings, facilitate introductions, and create opportunities for meaningful connections</p>
+                </div>
+                <div class="moderator-role">
+                    <h3>Maintain Quality</h3>
+                    <p>Enforce community guidelines and remove members who don't contribute positively to the group dynamic</p>
+                </div>
+                <div class="moderator-role">
+                    <h3>Drive Value</h3>
+                    <p>Create community-building activities, workshops, and events tailored to their group's specific needs</p>
+                </div>
+                <div class="moderator-role">
+                    <h3>Set the Tone</h3>
+                    <p>Establish cadences, expectations, and culture that make their community genuinely valuable for all members</p>
+                </div>
+            </div>
+            
+            <p style="text-align: center; margin-top: 30px; font-style: italic;">Moderators have suggested guidelines but ultimate authority over their community's size, rules, and membership.</p>
+        </div>
+        
+        <div class="expectations">
+            <h2>What to Expect</h2>
+            <div class="expect-grid">
+                <div class="expect-section">
+                    <h3>What You'll Get</h3>
+                    <ul>
+                        <li>Honest feedback from peers solving similar problems</li>
+                        <li>Real failure stories (not just success highlights)</li>
+                        <li>Regular community building activities</li>
+                        <li>Direct access to founders one step ahead of you</li>
+                        <li>No pressure to raise money or hit arbitrary milestones</li>
+                        <li>Local networking opportunities in your region</li>
+                    </ul>
+                </div>
+                <div class="expect-section">
+                    <h3>What's Expected of You</h3>
+                    <ul>
+                        <li>Share honestly about your challenges and failures</li>
+                        <li>Actively help other community members</li>
+                        <li>Participate in community activities and discussions</li>
+                        <li>Respect the small group dynamic (no spamming or self-promotion)</li>
+                        <li>Respect community guidelines set by your moderators</li>
+                        <li>Accept that moderators have authority to maintain group quality</li>
+                        <li>Contribute to building a supportive ecosystem</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="manifesto-section" id="manifesto">
+            <h2>The Full Manifesto</h2>
+            <div class="manifesto-excerpt">
+                "Y Combinator now gives every startup $500,000. It's never been cheaper to start a company. What exactly are founders supposed to spend that money on? Both U Combinator and KY Combinator launched in the past year, despite Y Combinator being open to everyone..."
+            </div>
+            <div style="text-align: center; margin-bottom: 30px;">
+                <a href="manifesto.html" class="btn">Read the Complete Manifesto</a>
+            </div>
+            
+            <div class="social-share">
+                <span>Share this:</span>
+                <a href="#" class="social-btn twitter" onclick="shareManifesto('twitter')">
+                    <span>🐦</span> Twitter
+                </a>
+                <a href="#" class="social-btn linkedin" onclick="shareManifesto('linkedin')">
+                    <span>💼</span> LinkedIn
+                </a>
+                <a href="#" class="social-btn facebook" onclick="shareManifesto('facebook')">
+                    <span>📘</span> Facebook
+                </a>
+            </div>
+        </div>
+        
+        <div class="interaction-section">
+            <div class="like-section">
+                <button class="like-btn" onclick="toggleLike()" id="likeBtn">
+                    <span id="likeIcon">👍</span>
+                    <span>Like this concept</span>
+                </button>
+                <div class="like-count">
+                    <span id="likeCount">247</span> people like this
+                </div>
+            </div>
+            
+            <div class="comments-section">
+                <h3>Join the Discussion</h3>
+                <div class="moderation-notice">
+                    Comments are moderated to maintain quality discussion. Please keep feedback constructive and relevant.
+                </div>
+                
+                <div class="comment-form">
+                    <textarea placeholder="Share your thoughts on the Unaccelerator concept..." id="commentText"></textarea>
+                    <div class="comment-form-actions">
+                        <input type="text" placeholder="Your name" id="commentName">
+                        <button class="comment-btn" onclick="submitComment()">Post Comment</button>
+                    </div>
+                </div>
+                
+                <div class="comments-list" id="commentsList">
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-author">Sarah Chen</span>
+                            <span class="comment-date">2 hours ago</span>
+                        </div>
+                        <div class="comment-text">This resonates so much! I've been bootstrapping for 3 years and the peer learning aspect is exactly what's missing from most founder communities. When do you expect the first cohorts to launch?</div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-author">Marcus Rodriguez</span>
+                            <span class="comment-date">5 hours ago</span>
+                        </div>
+                        <div class="comment-text">The geographic inequality point is spot on. I'm in Austin and even here it feels like you need to be in SF to be taken seriously. Would love to see a regional Texas community.</div>
+                    </div>
+                    
+                    <div class="comment">
+                        <div class="comment-header">
+                            <span class="comment-author">Alex Kim</span>
+                            <span class="comment-date">1 day ago</span>
+                        </div>
+                        <div class="comment-text">Finally someone calling out the funding paradox! Just spent $30/month on AI tools that replaced what would have been a $50k developer salary. The math doesn't add up for traditional accelerators anymore.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="cta">
+            <h2>Ready to Build Without the Baggage?</h2>
+            <p>Join founders who are building sustainable, profitable companies using today's tools—without chasing unicorn valuations with other people's money.</p>
+            <a href="#" class="btn">Join the Community</a>
+        </div>
+    </div>
+    
+    <script>
+        let liked = false;
+        let likeCount = 247;
+        
+        function toggleLike() {
+            const likeBtn = document.getElementById('likeBtn');
+            const likeIcon = document.getElementById('likeIcon');
+            const likeCountElement = document.getElementById('likeCount');
+            
+            if (!liked) {
+                liked = true;
+                likeCount++;
+                likeBtn.classList.add('liked');
+                likeIcon.textContent = '❤️';
+            } else {
+                liked = false;
+                likeCount--;
+                likeBtn.classList.remove('liked');
+                likeIcon.textContent = '👍';
+            }
+            
+            likeCountElement.textContent = likeCount;
+        }
+        
+        function submitComment() {
+            const commentText = document.getElementById('commentText').value;
+            const commentName = document.getElementById('commentName').value;
+            
+            if (!commentText.trim() || !commentName.trim()) {
+                alert('Please enter both your name and comment.');
+                return;
+            }
+            
+            // In a real implementation, this would send to a backend for moderation
+            alert('Thank you for your comment! It has been submitted for moderation and will appear once approved.');
+            
+            // Clear the form
+            document.getElementById('commentText').value = '';
+            document.getElementById('commentName').value = '';
+        }
+        
+        function shareManifesto(platform) {
+            const url = encodeURIComponent(window.location.href + 'manifesto.html');
+            const title = encodeURIComponent('The Unaccelerator: Why the Future of Startups Doesn\'t Need Y Combinator');
+            const text = encodeURIComponent('Traditional accelerators are broken. Here\'s what we\'re building instead.');
+            
+            let shareUrl;
+            
+            switch(platform) {
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
+                    break;
+                case 'linkedin':
+                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+            }
+            
+            window.open(shareUrl, '_blank', 'width=600,height=400');
+        }
+        
+        // Simulate real-time like updates (in production, this would be WebSocket or polling)
+        setInterval(() => {
+            if (Math.random() < 0.1) { // 10% chance every 5 seconds
+                const currentCount = parseInt(document.getElementById('likeCount').textContent);
+                if (!liked) { // Only increment if user hasn't liked
+                    document.getElementById('likeCount').textContent = currentCount + 1;
+                }
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
