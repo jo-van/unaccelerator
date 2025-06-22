@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Unaccelerator - Real Community for Real Founders</title>
+    <title>Unaccelerator - Guiding Founders Through Every Tide</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --ocean-blue: #1e3a8a;
+            --navigator-gold: #f59e0b;
+            --sea-foam: #10b981;
+            --coral-accent: #ef4444;
+            --sandy-neutral: #f3f4f6;
+            --deep-navy: #0f172a;
+            --light-blue: #dbeafe;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,11 +23,17 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--deep-navy);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
             min-height: 100vh;
+        }
+        
+        .nautical-pattern {
+            background-image: 
+                radial-gradient(circle at 2px 2px, rgba(255,255,255,0.1) 1px, transparent 0);
+            background-size: 20px 20px;
         }
         
         .container {
@@ -25,768 +42,789 @@
             padding: 0 20px;
         }
         
-        .hero {
-            background: rgba(255, 255, 255, 0.95);
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(30, 58, 138, 0.95);
             backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--navigator-gold);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        .compass-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--navigator-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--ocean-blue);
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--navigator-gold);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,5 80,20 Q95,50 80,80 Q50,95 20,80 Q5,50 20,20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/></svg>');
+            background-size: 100px 100px;
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .hero-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
-            margin: 40px auto;
-            padding: 60px 40px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            padding: 4rem;
             text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            z-index: 2;
         }
         
         .hero h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--navigator-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
         
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: var(--ocean-blue);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            font-style: italic;
+        }
+        
         .hero .subtitle {
-            font-size: 1.5rem;
-            color: #666;
-            margin-bottom: 40px;
-            font-weight: 300;
-        }
-        
-        .value-prop {
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-        }
-        
-        .value-prop h2 {
-            font-size: 2.2rem;
-            margin-bottom: 30px;
-            text-align: center;
-            color: #333;
-        }
-        
-        .problems {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-        }
-        
-        .problem {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            border-left: 5px solid #e74c3c;
-        }
-        
-        .problem h3 {
-            color: #e74c3c;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .solution {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-            border-left: 5px solid #27ae60;
-        }
-        
-        .solution h2 {
-            color: #27ae60;
-            margin-bottom: 20px;
-            font-size: 2rem;
-        }
-        
-        .communities {
-            background: #f8f9fa;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-        }
-        
-        .communities h2 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 2.2rem;
-        }
-        
-        .community-types {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
-        }
-        
-        .community-type {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .community-type h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-        }
-        
-        .moderator-section {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-        }
-        
-        .moderator-section h2 {
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 2.2rem;
-        }
-        
-        .moderator-section > p {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-            color: #666;
-        }
-        
-        .moderator-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .moderator-role {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            border-top: 4px solid #764ba2;
-        }
-        
-        .moderator-role h3 {
-            color: #764ba2;
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-        }
-        
-        .expectations {
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            margin: 40px 0;
-        }
-        
-        .expectations h2 {
-            margin-bottom: 30px;
-            text-align: center;
-            font-size: 2.2rem;
-        }
-        
-        .expect-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 30px;
-        }
-        
-        .expect-section h3 {
-            color: #667eea;
-            margin-bottom: 20px;
-            font-size: 1.5rem;
-        }
-        
-        .expect-section ul {
-            list-style: none;
-        }
-        
-        .expect-section li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-        }
-        
-        .expect-section li:before {
-            content: "→";
-            position: absolute;
-            left: 0;
-            color: #667eea;
-            font-weight: bold;
-        }
-        
-        .cta {
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            text-align: center;
-            margin: 40px 0;
-        }
-        
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .cta p {
             font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            color: #64748b;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         
         .btn {
             display: inline-block;
-            background: white;
-            color: #667eea;
-            padding: 15px 30px;
-            border-radius: 8px;
+            padding: 1rem 2rem;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
         }
         
-        .btn:hover {
+        .btn-primary {
+            background: var(--navigator-gold);
+            color: var(--ocean-blue);
+        }
+        
+        .btn-primary:hover {
+            background: transparent;
+            border-color: var(--navigator-gold);
+            color: var(--navigator-gold);
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
         
         .btn-secondary {
-            display: inline-block;
             background: transparent;
-            color: #667eea;
-            border: 2px solid #667eea;
-            padding: 12px 24px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            margin-top: 20px;
+            color: var(--ocean-blue);
+            border-color: var(--ocean-blue);
         }
         
         .btn-secondary:hover {
-            background: #667eea;
+            background: var(--ocean-blue);
             color: white;
             transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
         }
         
-        .manifesto-link {
-            margin-top: 30px;
-        }
-        
-        .manifesto-section {
+        /* Problem Section */
+        .problem-section {
+            padding: 5rem 0;
             background: white;
-            padding: 60px 40px;
-            border-radius: 20px;
-            margin: 40px 0;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
         
-        .manifesto-section h2 {
-            text-align: center;
-            margin-bottom: 30px;
+        .section-title {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            color: #333;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--ocean-blue);
         }
         
-        .manifesto-excerpt {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 30px;
-            font-style: italic;
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
         
-        .social-share {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
-            align-items: center;
-            margin: 30px 0;
-            flex-wrap: wrap;
-        }
-        
-        .social-share span {
-            font-weight: 600;
-            color: #333;
-            margin-right: 10px;
-        }
-        
-        .social-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: transform 0.2s ease;
-            color: white;
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .social-btn.twitter {
-            background: #1da1f2;
-        }
-        
-        .social-btn.linkedin {
-            background: #0077b5;
-        }
-        
-        .social-btn.facebook {
-            background: #1877f2;
-        }
-        
-        .interaction-section {
-            background: #f8f9fa;
-            padding: 40px;
+        .problem-card {
+            background: var(--sandy-neutral);
+            padding: 2rem;
             border-radius: 15px;
-            margin: 40px 0;
+            border-left: 5px solid var(--coral-accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         
-        .interaction-section h3 {
-            margin-bottom: 20px;
-            color: #333;
+        .problem-card h3 {
+            color: var(--coral-accent);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
         }
         
-        .like-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #ddd;
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
         }
         
-        .like-btn {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: white;
-            border: 2px solid #667eea;
-            color: #667eea;
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
+        .stat {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--light-blue);
+            border-radius: 12px;
         }
         
-        .like-btn:hover {
-            background: #667eea;
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--ocean-blue);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+        
+        /* Solution Section */
+        .solution-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--ocean-blue), #3b82f6);
             color: white;
         }
         
-        .like-btn.liked {
-            background: #667eea;
-            color: white;
+        .solution-content {
+            text-align: center;
+            margin-bottom: 3rem;
         }
         
-        .like-count {
+        .solution-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--navigator-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            margin-bottom: 1rem;
+            color: var(--navigator-gold);
+        }
+        
+        /* Stakeholder Sections */
+        .stakeholder-section {
+            padding: 5rem 0;
+        }
+        
+        .stakeholder-section:nth-child(even) {
+            background: var(--sandy-neutral);
+        }
+        
+        .stakeholder-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .stakeholder-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--ocean-blue);
+        }
+        
+        .benefits-list {
+            list-style: none;
+        }
+        
+        .benefits-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
             font-size: 1.1rem;
-            color: #666;
         }
         
-        .comments-section {
-            margin-top: 30px;
+        .benefits-list li:before {
+            content: "⚓";
+            position: absolute;
+            left: 0;
+            color: var(--navigator-gold);
+            font-size: 1.2rem;
         }
         
-        .comment-form {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 30px;
-        }
-        
-        .comment-form textarea {
-            width: 100%;
-            min-height: 100px;
-            padding: 15px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
-            font-family: inherit;
-            font-size: 1rem;
-            resize: vertical;
-        }
-        
-        .comment-form textarea:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .comment-form-actions {
+        .stakeholder-visual {
+            background: var(--light-blue);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 300px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-top: 15px;
+            justify-content: center;
         }
         
-        .comment-form input[type="text"] {
-            padding: 10px;
-            border: 2px solid #e0e0e0;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            width: 200px;
-        }
-        
-        .comment-form input[type="text"]:focus {
-            outline: none;
-            border-color: #667eea;
-        }
-        
-        .comment-btn {
-            background: #667eea;
+        /* CTA Section */
+        .final-cta {
+            padding: 5rem 0;
+            background: var(--deep-navy);
             color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s ease;
+            text-align: center;
         }
         
-        .comment-btn:hover {
-            background: #5a6fd8;
+        .final-cta h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
         
-        .comments-list {
-            space-y: 20px;
+        .final-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .comment {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .comment-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-        
-        .comment-author {
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .comment-date {
-            color: #999;
-            font-size: 0.9rem;
-        }
-        
-        .comment-text {
-            color: #555;
-            line-height: 1.6;
-        }
-        
-        .moderation-notice {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            color: #856404;
-            padding: 10px 15px;
-            border-radius: 6px;
-            margin-bottom: 20px;
-            font-size: 0.9rem;
-        }
-        
+        /* Responsive Design */
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
             }
             
-            .hero {
-                padding: 40px 20px;
-                margin: 20px auto;
+            .hero-content {
+                padding: 2rem;
             }
             
-            .expect-grid {
+            .stakeholder-content {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: 2rem;
+            }
+            
+            .nav-links {
+                display: none;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="hero">
-            <h1>The Unaccelerator</h1>
-            <p class="subtitle">Real community for founders building real companies</p>
-            <div class="manifesto-link">
-                <a href="manifesto.html" class="btn-secondary">Read Our Full Manifesto</a>
-            </div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="compass-icon">⚓</div>
+                Unaccelerator
+            </a>
+            <ul class="nav-links">
+                <li><a href="#captains">For Captains</a></li>
+                <li><a href="#navigators">For Navigators</a></li>
+                <li><a href="#crew">For Crew</a></li>
+                <li><a href="#contact">Get Started</a></li>
+            </ul>
         </div>
-        
-        <div class="value-prop">
-            <h2>Traditional accelerators are broken</h2>
-            <div class="problems">
-                <div class="problem">
-                    <h3>The Funding Myth</h3>
-                    <p>Y Combinator gives $500K when AI tools cost $20/month. What exactly are you supposed to spend that money on?</p>
-                </div>
-                <div class="problem">
-                    <h3>Lost Community</h3>
-                    <p>200+ company cohorts destroyed the intimate community that made early YC valuable. You're just another face in the crowd.</p>
-                </div>
-                <div class="problem">
-                    <h3>Irrelevant Advice</h3>
-                    <p>Learning from founders who built companies 20 years ago with different tools? You're playing a different game entirely.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="solution">
-            <h2>Here's what we offer instead</h2>
-            <p><strong>✗ Zero funding</strong> in exchange for 0% equity</p>
-            <p><strong>✗ Zero fees</strong> in exchange for zero paywalls</p>
-            <p><strong>✓ Community</strong> as valuable as you choose to make it</p>
-            <p><strong>✓ Complete transparency</strong> about real struggles</p>
-            <p><strong>✓ Peer-to-peer learning</strong> from founders playing the same game you are</p>
-            <p><strong>✓ Maybe a free t-shirt</strong></p>
-        </div>
-        
-        <div class="communities">
-            <h2>Small Communities That Actually Know Each Other</h2>
-            <p>Every member knows every other member by name and has a rough idea of what they're working on. No getting lost in the crowd.</p>
-            
-            <div class="community-types">
-                <div class="community-type">
-                    <h3>By Stage</h3>
-                    <p>Idea, Pre-Revenue, Early Stage, Growth</p>
-                </div>
-                <div class="community-type">
-                    <h3>By Industry</h3>
-                    <p>AI/ML, SaaS, E-commerce, Creator Economy</p>
-                </div>
-                <div class="community-type">
-                    <h3>By Region</h3>
-                    <p>Build local ecosystem density in your area</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="moderator-section">
-            <h2>Community-Driven Leadership</h2>
-            <p>Each community is led by experienced moderators who have real authority and responsibility:</p>
-            
-            <div class="moderator-grid">
-                <div class="moderator-role">
-                    <h3>Foster Engagement</h3>
-                    <p>Organize regular meetings, facilitate introductions, and create opportunities for meaningful connections</p>
-                </div>
-                <div class="moderator-role">
-                    <h3>Maintain Quality</h3>
-                    <p>Enforce community guidelines and remove members who don't contribute positively to the group dynamic</p>
-                </div>
-                <div class="moderator-role">
-                    <h3>Drive Value</h3>
-                    <p>Create community-building activities, workshops, and events tailored to their group's specific needs</p>
-                </div>
-                <div class="moderator-role">
-                    <h3>Set the Tone</h3>
-                    <p>Establish cadences, expectations, and culture that make their community genuinely valuable for all members</p>
-                </div>
-            </div>
-            
-            <p style="text-align: center; margin-top: 30px; font-style: italic;">Moderators have suggested guidelines but ultimate authority over their community's size, rules, and membership.</p>
-        </div>
-        
-        <div class="expectations">
-            <h2>What to Expect</h2>
-            <div class="expect-grid">
-                <div class="expect-section">
-                    <h3>What You'll Get</h3>
-                    <ul>
-                        <li>Honest feedback from peers solving similar problems</li>
-                        <li>Real failure stories (not just success highlights)</li>
-                        <li>Regular community building activities</li>
-                        <li>Direct access to founders one step ahead of you</li>
-                        <li>No pressure to raise money or hit arbitrary milestones</li>
-                        <li>Local networking opportunities in your region</li>
-                    </ul>
-                </div>
-                <div class="expect-section">
-                    <h3>What's Expected of You</h3>
-                    <ul>
-                        <li>Share honestly about your challenges and failures</li>
-                        <li>Actively help other community members</li>
-                        <li>Participate in community activities and discussions</li>
-                        <li>Respect the small group dynamic (no spamming or self-promotion)</li>
-                        <li>Respect community guidelines set by your moderators</li>
-                        <li>Accept that moderators have authority to maintain group quality</li>
-                        <li>Contribute to building a supportive ecosystem</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="manifesto-section" id="manifesto">
-            <h2>The Full Manifesto</h2>
-            <div class="manifesto-excerpt">
-                "Y Combinator now gives every startup $500,000. It's never been cheaper to start a company. What exactly are founders supposed to spend that money on? Both U Combinator and KY Combinator launched in the past year, despite Y Combinator being open to everyone..."
-            </div>
-            <div style="text-align: center; margin-bottom: 30px;">
-                <a href="manifesto.html" class="btn">Read the Complete Manifesto</a>
-            </div>
-            
-            <div class="social-share">
-                <span>Share this:</span>
-                <a href="#" class="social-btn twitter" onclick="shareManifesto('twitter')">
-                    <span>🐦</span> Twitter
-                </a>
-                <a href="#" class="social-btn linkedin" onclick="shareManifesto('linkedin')">
-                    <span>💼</span> LinkedIn
-                </a>
-                <a href="#" class="social-btn facebook" onclick="shareManifesto('facebook')">
-                    <span>📘</span> Facebook
-                </a>
-            </div>
-        </div>
-        
-        <div class="interaction-section">
-            <div class="like-section">
-                <button class="like-btn" onclick="toggleLike()" id="likeBtn">
-                    <span id="likeIcon">👍</span>
-                    <span>Like this concept</span>
-                </button>
-                <div class="like-count">
-                    <span id="likeCount">247</span> people like this
-                </div>
-            </div>
-            
-            <div class="comments-section">
-                <h3>Join the Discussion</h3>
-                <div class="moderation-notice">
-                    Comments are moderated to maintain quality discussion. Please keep feedback constructive and relevant.
-                </div>
-                
-                <div class="comment-form">
-                    <textarea placeholder="Share your thoughts on the Unaccelerator concept..." id="commentText"></textarea>
-                    <div class="comment-form-actions">
-                        <input type="text" placeholder="Your name" id="commentName">
-                        <button class="comment-btn" onclick="submitComment()">Post Comment</button>
-                    </div>
-                </div>
-                
-                <div class="comments-list" id="commentsList">
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Sarah Chen</span>
-                            <span class="comment-date">2 hours ago</span>
-                        </div>
-                        <div class="comment-text">This resonates so much! I've been bootstrapping for 3 years and the peer learning aspect is exactly what's missing from most founder communities. When do you expect the first cohorts to launch?</div>
-                    </div>
-                    
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Marcus Rodriguez</span>
-                            <span class="comment-date">5 hours ago</span>
-                        </div>
-                        <div class="comment-text">The geographic inequality point is spot on. I'm in Austin and even here it feels like you need to be in SF to be taken seriously. Would love to see a regional Texas community.</div>
-                    </div>
-                    
-                    <div class="comment">
-                        <div class="comment-header">
-                            <span class="comment-author">Alex Kim</span>
-                            <span class="comment-date">1 day ago</span>
-                        </div>
-                        <div class="comment-text">Finally someone calling out the funding paradox! Just spent $30/month on AI tools that replaced what would have been a $50k developer salary. The math doesn't add up for traditional accelerators anymore.</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    </nav>
 
-        <div class="cta">
-            <h2>Ready to Build Without the Baggage?</h2>
-            <p>Join founders who are building sustainable, profitable companies using today's tools—without chasing unicorn valuations with other people's money.</p>
-            <a href="#" class="btn">Join the Community</a>
+    <!-- Hero Section -->
+    <section class="hero nautical-pattern">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Unaccelerator</h1>
+                <p class="tagline">Guiding Founders Through Every Tide</p>
+                <p class="subtitle">Building Kentucky's Unified Entrepreneurship Ecosystem with experienced navigators, vetted service crews, and safe harbors for investment</p>
+                <div class="cta-buttons">
+                    <a href="#captains" class="btn btn-primary">Join as Captain</a>
+                    <a href="#navigators" class="btn btn-secondary">Become a Navigator</a>
+                </div>
+            </div>
         </div>
-    </div>
-    
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <h2 class="section-title">Today's Entrepreneurship Landscape: Navigating Alone Between Scattered Islands</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3>Lost at Sea</h3>
+                    <p>Founders are left to navigate treacherous waters in boats they're building while sailing them, with no experienced navigator to guide them safely between resources.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Scattered Resources</h3>
+                    <p>Louisville has 40+ disconnected entrepreneurship resources with no systematic guidance from idea to maturity in the Kentuckiana region.</p>
+                </div>
+                <div class="problem-card">
+                    <h3>Trial and Error Waste</h3>
+                    <p>Founders waste 4-6 months finding quality service providers, making expensive mistakes that could be easily avoided with proper guidance.</p>
+                </div>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">90%</span>
+                    <span class="stat-label">of startups fail within 10 years</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">4-6</span>
+                    <span class="stat-label">months wasted finding service providers</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">40+</span>
+                    <span class="stat-label">disconnected resources in Louisville</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section">
+        <div class="container">
+            <div class="solution-content">
+                <h2 class="section-title" style="color: white;">Our Solution: The Navigator Network</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 3rem; opacity: 0.9;">Every captain gets an experienced navigator. Every journey has charted routes. Every harbor offers safe passage to the next stage of growth.</p>
+            </div>
+            
+            <div class="solution-features">
+                <div class="feature-card">
+                    <div class="feature-icon">🧭</div>
+                    <h3>Experienced Navigators</h3>
+                    <p>Dedicated business leaders guide every captain with weekly strategic guidance and local knowledge</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🗺️</div>
+                    <h3>Charted Routes</h3>
+                    <p>Vetted service provider network eliminates trial-and-error, connecting you directly with proven partners</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚓</div>
+                    <h3>Safe Harbors</h3>
+                    <p>Investment opportunities when ready, combining capital with service credits for optimal growth</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌊</div>
+                    <h3>Local Knowledge</h3>
+                    <p>Hyperlocal connections in your neighborhood, strengthening Louisville's business districts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Captains/Founders Section -->
+    <section id="captains" class="stakeholder-section">
+        <div class="container">
+            <div class="stakeholder-content">
+                <div class="stakeholder-text">
+                    <h2>For Captains (Founders)</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Begin your guided entrepreneurial voyage with experienced navigators. Sail with confidence toward sustainable success.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><strong>Dedicated Navigator:</strong> Weekly guidance from experienced business leader</li>
+                        <li><strong>Charted Routes:</strong> Vetted service providers, no more trial-and-error</li>
+                        <li><strong>Investment Harbor:</strong> Access to capital when you're ready to scale</li>
+                        <li><strong>Local Knowledge:</strong> Hyperlocal connections in your neighborhood</li>
+                        <li><strong>Continuous Support:</strong> From idea to mature vessel</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:hello@unaccelerator.com?subject=Captain Interest" class="btn btn-primary">Schedule Navigator Matching</a>
+                    </div>
+                </div>
+                <div class="stakeholder-visual">
+                    <div>
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">What's In Your Harbor</h3>
+                        <p><strong>Example:</strong> Skip months of lawyer research - your Navigator connects you directly with pre-vetted legal partners in your neighborhood.</p>
+                        <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 8px;">
+                            <p style="font-style: italic; color: #64748b;">"My Navigator saved me $15K by connecting me with the right accountant from day one, instead of switching firms twice like my previous startup." - Sarah, Tech Founder</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigators/Coaches Section -->
+    <section id="navigators" class="stakeholder-section">
+        <div class="container">
+            <div class="stakeholder-content">
+                <div class="stakeholder-visual">
+                    <div>
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Join the Navigator Corps</h3>
+                        <p>Join Louisville's most influential entrepreneur network of 15-20 successful business leaders.</p>
+                        <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 8px;">
+                            <p style="font-style: italic; color: #64748b;">"Being a Navigator gives me first access to the best deals in Louisville while helping build the next generation of entrepreneurs." - Mike, Serial Entrepreneur</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stakeholder-text">
+                    <h2>For Navigators (Experienced Leaders)</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Lead the next generation of entrepreneurs. Share your wisdom and guide new ventures through challenging waters.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><strong>Impact:</strong> Guide 1-3 promising captains weekly</li>
+                        <li><strong>Investment Opportunity:</strong> Participate in funding decisions</li>
+                        <li><strong>Navigator Network:</strong> Connect with fellow successful business leaders</li>
+                        <li><strong>Deal Flow:</strong> First access to regional investment opportunities</li>
+                        <li><strong>Legacy:</strong> Build Kentucky's entrepreneurship fleet</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:hello@unaccelerator.com?subject=Navigator Interest" class="btn btn-primary">Apply for Navigator Position</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Providers Section -->
+    <section id="crew" class="stakeholder-section">
+        <div class="container">
+            <div class="stakeholder-content">
+                <div class="stakeholder-text">
+                    <h2>For Crew (Service Providers)</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Provide specialized services to our growing fleet. Connect with ventures that need your unique expertise.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><strong>Qualified Leads:</strong> Pre-educated by experienced business guides</li>
+                        <li><strong>Steady Revenue:</strong> Retainer work from investment vessel</li>
+                        <li><strong>Performance Rewards:</strong> Top-rated providers get priority referrals</li>
+                        <li><strong>Professional Network:</strong> Connect with other specialized providers</li>
+                        <li><strong>Business Growth:</strong> 2 hours weekly office hours = consistent deal flow</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:hello@unaccelerator.com?subject=Service Provider Interest" class="btn btn-primary">Join Crew Network</a>
+                    </div>
+                </div>
+                <div class="stakeholder-visual">
+                    <div>
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Quality Over Quantity</h3>
+                        <p>We track performance and founder satisfaction, so providers who deliver great results get more referrals.</p>
+                        <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 8px;">
+                            <p style="font-style: italic; color: #64748b;">"The Unaccelerator sends me clients who understand the value of professional services. No more explaining why good legal work costs money." - Lisa, Business Attorney</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Government/Economic Development Section -->
+    <section class="stakeholder-section">
+        <div class="container">
+            <div class="stakeholder-content">
+                <div class="stakeholder-visual">
+                    <div>
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Strengthen Louisville's Entrepreneurial Ecosystem</h3>
+                        <p>Higher startup survival creates sustained employment growth in Louisville, where 1 in 5 businesses fail in the first year.</p>
+                        <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 8px;">
+                            <p style="color: var(--ocean-blue); font-weight: 600;">Louisville Metro Economic Impact Goals:</p>
+                            <p style="font-style: italic; color: #64748b;">Support $15 billion GDP growth through entrepreneurship</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="stakeholder-text">
+                    <h2>For Harbor Masters (Government & Economic Development)</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Support regional economic development through entrepreneurship. Transform your community into a thriving business harbor.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><strong>Job Creation:</strong> Higher startup survival rates through systematic support</li>
+                        <li><strong>Hyperlocal Growth:</strong> Neighborhood-based business development</li>
+                        <li><strong>Talent Retention:</strong> Keep Kentucky's best graduates in the region</li>
+                        <li><strong>Measurable Impact:</strong> Track economic multiplier effects on community wealth</li>
+                        <li><strong>Resource Leverage:</strong> Maximize Kentucky's $150M+ funding programs</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:hello@unaccelerator.com?subject=Government Partnership" class="btn btn-primary">Explore Partnership</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Universities Section -->
+    <section class="stakeholder-section">
+        <div class="container">
+            <div class="stakeholder-content">
+                <div class="stakeholder-text">
+                    <h2>For Academies (Universities & Schools)</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Prepare students for entrepreneurial voyages. Universities like UofL, Bellarmine, KCTC, and Sullivan play a critical role in training the next generation of business captains.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><strong>Real-World Training:</strong> Students learn from active business captains</li>
+                        <li><strong>Graduate Retention:</strong> Alumni stay anchored in Kentucky's growing harbors</li>
+                        <li><strong>Industry Connections:</strong> Bridge classroom theory with business practice</li>
+                        <li><strong>Innovation Reputation:</strong> Institution becomes known for launching ventures</li>
+                        <li><strong>Career Pathways:</strong> Students discover diverse paths beyond traditional careers</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:hello@unaccelerator.com?subject=University Partnership" class="btn btn-primary">Partner With Us</a>
+                    </div>
+                </div>
+                <div class="stakeholder-visual">
+                    <div>
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Kentucky's Premier Entrepreneurship Pathway</h3>
+                        <p>Create hands-on learning experiences that prepare students for real business challenges.</p>
+                        <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 8px;">
+                            <p style="font-style: italic; color: #64748b;">"Our students get mentored by actual successful entrepreneurs, not just professors teaching theory. The career outcomes speak for themselves." - Business School Dean</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Neighborhoods Section -->
+    <section class="stakeholder-section">
+        <div class="container">
+            <div class="stakeholder-content">
+                <div class="stakeholder-visual">
+                    <div>
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Hyperlocal Economic Development</h3>
+                        <p>Strengthen business districts in Highlands, Germantown, NuLu, St. Matthews, and other Louisville neighborhoods through hyperlocal entrepreneur support.</p>
+                        <div style="margin-top: 2rem; padding: 1rem; background: white; border-radius: 8px;">
+                            <p style="color: var(--ocean-blue); font-weight: 600;">Neighborhood Benefits:</p>
+                            <ul style="margin: 0.5rem 0; padding-left: 1rem; color: #64748b;">
+                                <li>Increased foot traffic and local spending</li>
+                                <li>Economic relationships stay in the neighborhood</li>
+                                <li>Property values rise through vibrant business ecosystems</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="stakeholder-text">
+                    <h2>For Harbor Towns (Neighborhoods)</h2>
+                    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Match local entrepreneurs with coaches and service providers in their own neighborhoods, keeping economic activity local and building stronger business districts.</p>
+                    
+                    <ul class="benefits-list">
+                        <li><strong>Business District Vitality:</strong> More foot traffic and local spending</li>
+                        <li><strong>Neighbor-to-Neighbor:</strong> Local successful captains mentor new ones</li>
+                        <li><strong>Economic Multiplier:</strong> Business relationships stay in neighborhood</li>
+                        <li><strong>Community Strength:</strong> Entrepreneurship without displacement</li>
+                        <li><strong>Property Values:</strong> Vibrant local business ecosystem</li>
+                    </ul>
+                    
+                    <div style="margin-top: 2rem;">
+                        <a href="mailto:hello@unaccelerator.com?subject=Neighborhood Development" class="btn btn-primary">Strengthen Your Harbor</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Section -->
+    <section class="stakeholder-section">
+        <div class="container">
+            <h2 class="section-title">Navigational Success: Measuring Our Impact</h2>
+            <div class="stats" style="margin-top: 3rem;">
+                <div class="stat">
+                    <span class="stat-number">85%</span>
+                    <span class="stat-label">Target survival rate of guided ventures at 3-year milestone</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">40%</span>
+                    <span class="stat-label">Capital efficiency improvement vs unguided startups</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">6 mo</span>
+                    <span class="stat-label">Faster time to market than regional average</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">$2.3M</span>
+                    <span class="stat-label">Economic multiplier per successful venture</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Implementation Timeline -->
+    <section class="stakeholder-section">
+        <div class="container">
+            <h2 class="section-title">Building the Fleet: Our Implementation Voyage</h2>
+            <div style="background: white; padding: 3rem; border-radius: 15px; margin-top: 3rem;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <div style="text-align: center; padding: 2rem; border-left: 4px solid var(--navigator-gold);">
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Foundation (Months 1-6)</h3>
+                        <ul style="list-style: none; text-align: left;">
+                            <li>⚓ Navigator Corps recruitment and training</li>
+                            <li>⚓ Establish service provider crew network</li>
+                            <li>⚓ Develop comprehensive charting systems</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; border-left: 4px solid var(--sea-foam);">
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Pilot Fleet (Months 7-12)</h3>
+                        <ul style="list-style: none; text-align: left;">
+                            <li>🚢 Launch with 15 captains guided by 7 navigators</li>
+                            <li>🚢 Integrate specialized service crews</li>
+                            <li>🚢 Investment vessel completes maiden voyage</li>
+                        </ul>
+                    </div>
+                    <div style="text-align: center; padding: 2rem; border-left: 4px solid var(--ocean-blue);">
+                        <h3 style="color: var(--ocean-blue); margin-bottom: 1rem;">Fleet Expansion (Months 13-24)</h3>
+                        <ul style="list-style: none; text-align: left;">
+                            <li>⛵ Scale to 50+ active captains</li>
+                            <li>⛵ Expand navigator network to 20 guides</li>
+                            <li>⛵ Regional harbor coordination systems</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section id="contact" class="final-cta">
+        <div class="container">
+            <h2>Chart Course for Kentucky's Entrepreneurial Future</h2>
+            <p>Ready to join our mission to transform Kentucky's entrepreneurial landscape? Choose your role in our growing fleet.</p>
+            <p style="font-weight: 600; color: var(--navigator-gold); margin-bottom: 3rem;">Join our founding cohort - launching July 2025.</p>
+            
+            <div class="cta-buttons">
+                <a href="mailto:hello@unaccelerator.com?subject=Captain Interest" class="btn btn-primary">Join as Captain</a>
+                <a href="mailto:hello@unaccelerator.com?subject=Navigator Interest" class="btn btn-secondary">Become Navigator</a>
+                <a href="mailto:hello@unaccelerator.com?subject=Service Provider Interest" class="btn btn-secondary">Join Crew</a>
+            </div>
+            
+            <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.2);">
+                <p style="font-size: 0.9rem; opacity: 0.7;">Built with ⚓ in Louisville, Kentucky</p>
+            </div>
+        </div>
+    </section>
+
     <script>
-        let liked = false;
-        let likeCount = 247;
-        
-        function toggleLike() {
-            const likeBtn = document.getElementById('likeBtn');
-            const likeIcon = document.getElementById('likeIcon');
-            const likeCountElement = document.getElementById('likeCount');
-            
-            if (!liked) {
-                liked = true;
-                likeCount++;
-                likeBtn.classList.add('liked');
-                likeIcon.textContent = '❤️';
-            } else {
-                liked = false;
-                likeCount--;
-                likeBtn.classList.remove('liked');
-                likeIcon.textContent = '👍';
-            }
-            
-            likeCountElement.textContent = likeCount;
-        }
-        
-        function submitComment() {
-            const commentText = document.getElementById('commentText').value;
-            const commentName = document.getElementById('commentName').value;
-            
-            if (!commentText.trim() || !commentName.trim()) {
-                alert('Please enter both your name and comment.');
-                return;
-            }
-            
-            // In a real implementation, this would send to a backend for moderation
-            alert('Thank you for your comment! It has been submitted for moderation and will appear once approved.');
-            
-            // Clear the form
-            document.getElementById('commentText').value = '';
-            document.getElementById('commentName').value = '';
-        }
-        
-        function shareManifesto(platform) {
-            const url = encodeURIComponent(window.location.href + 'manifesto.html');
-            const title = encodeURIComponent('The Unaccelerator: Why the Future of Startups Doesn\'t Need Y Combinator');
-            const text = encodeURIComponent('Traditional accelerators are broken. Here\'s what we\'re building instead.');
-            
-            let shareUrl;
-            
-            switch(platform) {
-                case 'twitter':
-                    shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${text}`;
-                    break;
-                case 'linkedin':
-                    shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
-                    break;
-                case 'facebook':
-                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-                    break;
-            }
-            
-            window.open(shareUrl, '_blank', 'width=600,height=400');
-        }
-        
-        // Simulate real-time like updates (in production, this would be WebSocket or polling)
-        setInterval(() => {
-            if (Math.random() < 0.1) { // 10% chance every 5 seconds
-                const currentCount = parseInt(document.getElementById('likeCount').textContent);
-                if (!liked) { // Only increment if user hasn't liked
-                    document.getElementById('likeCount').textContent = currentCount + 1;
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(30, 58, 138, 0.98)';
+            } else {
+                nav.style.background = 'rgba(30, 58, 138, 0.95)';
             }
-        }, 5000);
+        });
     </script>
 </body>
 </html>
