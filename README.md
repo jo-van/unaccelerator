@@ -1,53 +1,55 @@
-# The Unaccelerator
+# Unaccelerator Website
 
-> Real community for founders building real companies
+The official website for the Unaccelerator - Kentucky's Unified Entrepreneurship Ecosystem.
 
-## About
+## Overview
 
-The Unaccelerator is a response to the broken traditional accelerator model. Instead of chasing funding and unicorn valuations, we're building intimate communities of founders who share honestly about the real challenges of building sustainable, profitable companies.
+The Unaccelerator is building Kentucky's first unified entrepreneurship ecosystem through a Navigator system that provides continuous support for founders from idea to maturity. Unlike traditional accelerators, we focus on permanent infrastructure rather than temporary programs.
 
-## The Problem with Traditional Accelerators
+## Website Structure
 
-- **The Funding Myth**: Y Combinator gives $500K when AI tools cost $20/month
-- **Lost Community**: 200+ company cohorts destroyed intimate community
-- **Irrelevant Advice**: Learning from founders who built companies 20 years ago with different tools
+- **index.html** - Main landing page with stakeholder-specific sections
+- **about.html** - Detailed information about our mission and structure  
+- **manifesto.html** - Our philosophy on why entrepreneurs need navigators, not accelerators
+- **contact.html** - Interactive contact form for all stakeholder types
 
-## Our Approach
+## Design Theme
 
-- ✗ Zero funding in exchange for 0% equity
-- ✗ Zero fees in exchange for zero paywalls
-- ✓ Community as valuable as you choose to make it
-- ✓ Complete transparency about real struggles
-- ✓ Peer-to-peer learning from founders playing the same game
-- ✓ Maybe a free t-shirt
+Maritime/nautical theme reflecting our Navigator approach:
+- **Color Palette**: Ocean blue, navigator gold, sea foam green
+- **Typography**: Inter (body) + Playfair Display (headings)
+- **Visual Elements**: Compass icons, anchor symbols, nautical terminology
 
-## Community Structure
+## Stakeholder Groups
 
-Small communities organized by:
-- **Stage**: Idea, Pre-Revenue, Early Stage, Growth
-- **Industry**: AI/ML, SaaS, E-commerce, Creator Economy
-- **Region**: Build local ecosystem density
+The website addresses six key stakeholder groups:
 
-Each community is led by experienced moderators with real authority to maintain quality and foster engagement.
+1. **Captains (Founders)** - Entrepreneurs seeking guidance
+2. **Navigators (Mentors)** - Experienced business leaders providing guidance
+3. **Crew (Service Providers)** - Vetted professionals serving the ecosystem
+4. **Harbor Masters (Government)** - Economic development partners
+5. **Academies (Universities)** - Educational institution partners
+6. **Harbor Towns (Neighborhoods)** - Local business associations
 
-## Files
+## Key Features
 
-- `index.html` - Main landing page
-- `manifesto.html` - Full manifesto article
-- `README.md` - This file
+- Responsive design optimized for mobile and desktop
+- Stakeholder-specific value propositions
+- Interactive contact form with role-based customization
+- Social sharing for manifesto content
+- Smooth navigation between sections
+- Professional email integration
 
-## Local Development
+## Development
 
-Simply open `index.html` in your browser to view the site locally.
+Built with vanilla HTML, CSS, and JavaScript for simplicity and fast loading. No external dependencies beyond Google Fonts.
 
-## Contributing
+## Contact
 
-This is an early-stage project. If you're interested in contributing or joining the community, reach out through the contact form on the website.
-
-## License
-
-MIT License - feel free to use and modify as needed.
+For questions about the website or the Unaccelerator:
+- Email: hello@unaccelerator.com
+- Website: unaccelerator.com
 
 ---
 
-*The Unaccelerator is launching soon. Join founders who are building the future without the traditional accelerator baggage.*
+*Guiding Founders Through Every Tide* ⚓

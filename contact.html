@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started - Unaccelerator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ocean-blue: #1e3a8a;
+            --navigator-gold: #f59e0b;
+            --sea-foam: #10b981;
+            --coral-accent: #ef4444;
+            --sandy-neutral: #f3f4f6;
+            --deep-navy: #0f172a;
+            --light-blue: #dbeafe;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--deep-navy);
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #06b6d4 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--ocean-blue), var(--navigator-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header .subtitle {
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .back-link {
+            display: inline-block;
+            background: var(--ocean-blue);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-link:hover {
+            background: var(--navigator-gold);
+            color: var(--ocean-blue);
+            transform: translateY(-2px);
+        }
+        
+        .form-container {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .role-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .role-option {
+            text-align: center;
+            padding: 1.5rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .role-option:hover {
+            border-color: var(--navigator-gold);
+            background: var(--light-blue);
+        }
+        
+        .role-option.selected {
+            border-color: var(--ocean-blue);
+            background: var(--light-blue);
+        }
+        
+        .role-option h3 {
+            color: var(--ocean-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .role-option p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--ocean-blue);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e5e5e5;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--ocean-blue);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background: var(--navigator-gold);
+            color: var(--ocean-blue);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: var(--ocean-blue);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(30, 58, 138, 0.3);
+        }
+        
+        .alternative-contact {
+            background: var(--sandy-neutral);
+            padding: 2rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .alternative-contact h3 {
+            color: var(--ocean-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .contact-options {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        
+        .contact-btn {
+            display: inline-block;
+            background: var(--ocean-blue);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-btn:hover {
+            background: var(--navigator-gold);
+            color: var(--ocean-blue);
+            transform: translateY(-2px);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .form-container {
+                padding: 2rem 1.5rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            .role-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Get Started</h1>
+            <p class="subtitle">Join Kentucky's entrepreneurial navigation system</p>
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
+        
+        <div class="form-container">
+            <h2 style="margin-bottom: 2rem; color: var(--ocean-blue); font-family: 'Playfair Display', serif;">Choose Your Role</h2>
+            
+            <div class="role-selector">
+                <div class="role-option" data-role="captain">
+                    <h3>⚓ Captain (Founder)</h3>
+                    <p>I need a Navigator to guide my business journey</p>
+                </div>
+                <div class="role-option" data-role="navigator">
+                    <h3>🧭 Navigator (Mentor)</h3>
+                    <p>I want to guide the next generation of entrepreneurs</p>
+                </div>
+                <div class="role-option" data-role="crew">
+                    <h3>🛠️ Crew (Service Provider)</h3>
+                    <p>I provide services to growing businesses</p>
+                </div>
+                <div class="role-option" data-role="investor">
+                    <h3>💰 Investor</h3>
+                    <p>I'm interested in investment opportunities</p>
+                </div>
+                <div class="role-option" data-role="partner">
+                    <h3>🤝 Partner</h3>
+                    <p>Government, university, or ecosystem partner</p>
+                </div>
+                <div class="role-option" data-role="other">
+                    <h3>💭 Other</h3>
+                    <p>I have questions or want to learn more</p>
+                </div>
+            </div>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="company">Company/Organization</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                
+                <div class="form-group">
+                    <label for="location">Location (City, State)</label>
+                    <input type="text" id="location" name="location" placeholder="e.g., Louisville, KY">
+                </div>
+                
+                <div class="form-group" id="experienceGroup" style="display: none;">
+                    <label for="experience">Business Experience</label>
+                    <select id="experience" name="experience">
+                        <option value="">Select experience level</option>
+                        <option value="first-time">First-time entrepreneur</option>
+                        <option value="some-experience">Some startup experience</option>
+                        <option value="serial">Serial entrepreneur</option>
+                        <option value="executive">Business executive/leader</option>
+                        <option value="investor">Active investor</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="serviceGroup" style="display: none;">
+                    <label for="service">Service Category</label>
+                    <select id="service" name="service">
+                        <option value="">Select your primary service</option>
+                        <option value="legal">Legal Services</option>
+                        <option value="accounting">Accounting/Finance</option>
+                        <option value="marketing">Marketing/Branding</option>
+                        <option value="technology">Technology Development</option>
+                        <option value="operations">Operations/HR</option>
+                        <option value="consulting">Business Consulting</option>
+                        <option value="other-service">Other Professional Service</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Tell us more about your goals and how the Unaccelerator can help *</label>
+                    <textarea id="message" name="message" required placeholder="Share your specific needs, experience, or questions..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="timeline">Preferred Contact Timeline</label>
+                    <select id="timeline" name="timeline">
+                        <option value="asap">As soon as possible</option>
+                        <option value="week">Within a week</option>
+                        <option value="month">Within a month</option>
+                        <option value="exploring">Just exploring for now</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send My Information</button>
+            </form>
+        </div>
+        
+        <div class="alternative-contact">
+            <h3>Prefer to Connect Directly?</h3>
+            <p>We're also available through these channels:</p>
+            <div class="contact-options">
+                <a href="mailto:hello@unaccelerator.com" class="contact-btn">📧 Email Us</a>
+                <a href="#" class="contact-btn">📅 Schedule Call</a>
+                <a href="https://linkedin.com/company/unaccelerator" class="contact-btn">💼 LinkedIn</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Role selection logic
+        const roleOptions = document.querySelectorAll('.role-option');
+        const experienceGroup = document.getElementById('experienceGroup');
+        const serviceGroup = document.getElementById('serviceGroup');
+        let selectedRole = '';
+        
+        roleOptions.forEach(option => {
+            option.addEventListener('click', function() {
+                // Remove selected class from all options
+                roleOptions.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to clicked option
+                this.classList.add('selected');
+                
+                // Store selected role
+                selectedRole = this.dataset.role;
+                
+                // Show/hide relevant form groups
+                experienceGroup.style.display = 'none';
+                serviceGroup.style.display = 'none';
+                
+                if (selectedRole === 'navigator' || selectedRole === 'investor') {
+                    experienceGroup.style.display = 'block';
+                } else if (selectedRole === 'crew') {
+                    serviceGroup.style.display = 'block';
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            data.role = selectedRole;
+            
+            // Create email body
+            let emailBody = `New Unaccelerator Contact Form Submission\n\n`;
+            emailBody += `Role: ${selectedRole || 'Not specified'}\n`;
+            emailBody += `Name: ${data.name}\n`;
+            emailBody += `Email: ${data.email}\n`;
+            emailBody += `Company: ${data.company || 'Not specified'}\n`;
+            emailBody += `Location: ${data.location || 'Not specified'}\n`;
+            
+            if (data.experience) {
+                emailBody += `Experience: ${data.experience}\n`;
+            }
+            
+            if (data.service) {
+                emailBody += `Service Category: ${data.service}\n`;
+            }
+            
+            emailBody += `Timeline: ${data.timeline}\n\n`;
+            emailBody += `Message:\n${data.message}`;
+            
+            // Create mailto link
+            const subject = `Unaccelerator ${selectedRole || 'General'} Interest - ${data.name}`;
+            const mailtoLink = `mailto:hello@unaccelerator.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            alert('Thank you! Your email client should now open with your message. If it doesn\'t, please email us directly at hello@unaccelerator.com');
+        });
+    </script>
+</body>
+</html>
